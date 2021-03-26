@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<robot name="ditto3">
+  <joint name="face_mover_joint" type="revolute">
+    <parent link="body"/>
+    <child link="mover_link"/>
+    <origin rpy="3.14159  1.56989  3.14159" xyz="0    0    0.02"/>
+    <axis xyz="-1.00000000e+00   0.00000000e+00  -9.00000000e-04"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <joint name="left_wheel_joint" type="revolute">
+    <parent link="body"/>
+    <child link="left_wheel"/>
+    <origin rpy="1.5707  0      1.5707" xyz="0.07     0       0.01833"/>
+    <axis xyz="0.00000000e+00   1.00000000e+00   9.00000000e-05"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <joint name="fixed_joint" type="revolute">
+    <parent link="mover_link"/>
+    <child link="front_face"/>
+    <origin rpy="3.11515 -1.56988 -3.11517" xyz="0    0.07  0"/>
+    <axis xyz="0  0  0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+  <joint name="right_wheel_joint" type="revolute">
+    <parent link="body"/>
+    <child link="right_wheel"/>
+    <origin rpy="1.5707  0      1.5707" xyz="-0.07     0       0.01833"/>
+    <axis xyz="0.00000000e+00   1.00000000e+00   9.00000000e-05"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <link name="body">
+    <inertial>
+      <mass value="40"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0  0  0" xyz="0       0      -0.03666"/>
+      <geometry>
+        <mesh filename="/home/xtreme/catkin_ws/src/Graduation CADs/OneDrive-2019-11-22/bodyCorrected.obj" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0  0  0" xyz="0       0      -0.03666"/>
+      <geometry>
+        <mesh filename="/home/xtreme/catkin_ws/src/Graduation CADs/OneDrive-2019-11-22/bodyCorrected.obj" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="left_wheel">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mover_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.045"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.045"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="front_face">
+    <inertial>
+      <mass value="150.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.1 0.01 0.1"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.1 0.01 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="right_wheel">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </visual>
+  </link>
+
+
+  <gazebo>
+    <plugin name="my_speed_controller_plugin" filename="libmy_speed_controller_plugin.so">
+      <namespace_model>GPabstractV2</namespace_model>
+      <activate_pid_control>no</activate_pid_control>                
+      <wheel_kp>0.1</wheel_kp>
+      <wheel_ki>0.0</wheel_ki>
+      <wheel_kd>0.0</wheel_kd>
+	  </plugin>
+  </gazebo>
+</robot>

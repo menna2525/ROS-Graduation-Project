@@ -1,0 +1,281 @@
+<?xml version="1.0" ?>
+<robot name="ditto19">
+  <joint name="ditto19__hokuyo_sensor_joint" type="fixed">
+    <parent link="ditto19__body"/>
+    <child link="ditto19__hokuyo_sensor"/>
+    <origin rpy="1.65062000e+00  -5.00000000e-05   5.80000000e-04" xyz="0      -0.07099  0.015"/>
+    <axis xyz="1.00000000e+00   0.00000000e+00   5.90000000e-04"/>
+    <limit effort="-1.0" lower="0.0" upper="-0.0" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto19__body_JOINT_0" type="fixed">
+    <parent link="ditto19__body"/>
+    <child link="ditto19__body_magnet_south"/>
+    <origin rpy="1.63618000e+00  -4.00000000e-05   2.10000000e-04" xyz="0      -0.07149  0.04"/>
+    <axis xyz="1.00000000e+00  -2.00000000e-05   2.20000000e-04"/>
+    <limit effort="-1.0" lower="0.0" upper="0.0" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto19__body_JOINT_1" type="fixed">
+    <parent link="ditto19__body"/>
+    <child link="ditto19__body_magnet_north"/>
+    <origin rpy="1.62063000e+00  -3.00000000e-05   1.60000000e-04" xyz="0.03    -0.07149  0.015"/>
+    <axis xyz="1.00000000e+00  -2.00000000e-05   1.60000000e-04"/>
+    <limit effort="-1.0" lower="0.0" upper="0.0" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto19__fixed_joint" type="fixed">
+    <parent link="ditto19__face_tilt"/>
+    <child link="ditto19__face_pan"/>
+    <origin rpy="1.54872000e+00  -2.00000000e-05   4.30500000e-02" xyz="0    0.06  0"/>
+    <axis xyz="-9.99070000e-01   6.00000000e-05  -4.30500000e-02"/>
+    <limit effort="-1.0" lower="0.0" upper="0.0" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto19__front_face_JOINT_0" type="fixed">
+    <parent link="ditto19__front_face"/>
+    <child link="ditto19__front_face_magnet_north"/>
+    <origin rpy="1.57071000e+00  -1.00000000e-05   1.00000000e-04" xyz="0.03   0.008 -0.005"/>
+    <axis xyz="1.00000000e+00  -1.00000000e-05   8.00000000e-05"/>
+    <limit effort="-1.0" lower="0.0" upper="0.0" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto19__front_face_JOINT_1" type="fixed">
+    <parent link="ditto19__front_face"/>
+    <child link="ditto19__front_face_magnet_south"/>
+    <origin rpy="1.58626000e+00  -2.00000000e-05   1.60000000e-04" xyz="-0.003  0.008  0.02"/>
+    <axis xyz="1.00000000e+00  -2.00000000e-05   1.30000000e-04"/>
+    <limit effort="-1.0" lower="0.0" upper="0.0" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto19__left_wheel_joint" type="revolute">
+    <parent link="ditto19__body"/>
+    <child link="ditto19__left_wheel"/>
+    <origin rpy="1.5707  0      1.5707" xyz="0.07     0       0.01833"/>
+    <axis xyz="0.00000000e+00   1.00000000e+00   9.00000000e-05"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto19__pan_joint" type="revolute">
+    <parent link="ditto19__face_pan"/>
+    <child link="ditto19__front_face"/>
+    <origin rpy="-1.61389 -0.02206  1.57168" xyz="0.00043  0.00022 -0.00998"/>
+    <axis xyz="-2.00000000e-05   1.00000000e+00   1.00000000e-05"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto19__right_wheel_joint" type="revolute">
+    <parent link="ditto19__body"/>
+    <child link="ditto19__right_wheel"/>
+    <origin rpy="1.5707  0      1.5707" xyz="-0.07     0       0.01833"/>
+    <axis xyz="0.00000000e+00   1.00000000e+00   9.00000000e-05"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto19__tilt_joint" type="revolute">
+    <parent link="ditto19__body"/>
+    <child link="ditto19__face_tilt"/>
+    <origin rpy="-3.14159  1.56989 -3.14159" xyz="0    0    0.02"/>
+    <axis xyz="-1.00000000e+00   0.00000000e+00  -9.00000000e-04"/>
+    <limit effort="-1.0" lower="0.0" upper="1.5707" velocity="-1.0"/>
+  </joint>
+  <link name="ditto19__body">
+    <inertial>
+      <mass value="5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="ditto19__collision">
+      <origin rpy="0  0  0" xyz="0       0      -0.03666"/>
+      <geometry>
+       <mesh filename="package://gp_abstract_sim/meshes/bodyCorrected.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="0  0  0" xyz="0       0      -0.03666"/>
+      <geometry>
+<mesh filename="package://gp_abstract_sim/meshes/bodyCorrected.stl" scale="0.01 0.01 0.01"/>
+    </visual>
+  </link>
+  <link name="ditto19__body_magnet_north">
+    <inertial>
+      <mass value="1e-07"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="ditto19__box_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.0025" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.0025" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto19__body_magnet_south">
+    <inertial>
+      <mass value="1e-07"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="ditto19__box_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.003" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.003" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto19__hokuyo_sensor">
+    <inertial>
+      <mass value="1e-07"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="ditto19__box_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.001" radius="0.005"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.001" radius="0.005"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto19__face_pan">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="ditto19__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.04"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto19__face_tilt">
+    <inertial>
+      <mass value="0.0001"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="ditto19__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.045"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.045"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto19__front_face">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="ditto19__collision">
+      <origin rpy="1.5707  0      0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.05"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="1.5707  0      0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.055"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto19__front_face_magnet_north">
+    <inertial>
+      <mass value="1e-07"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="ditto19__box_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.0025" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="0  0  0" xyz="0.005  0.01   0"/>
+      <geometry>
+        <cylinder length="0.0025" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto19__front_face_magnet_south">
+    <inertial>
+      <mass value="1e-07"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="ditto19__box_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.003" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="0  0  0" xyz="0.005  0.01   0"/>
+      <geometry>
+        <cylinder length="0.003" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto19__left_wheel">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="ditto19__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto19__right_wheel">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="ditto19__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </collision>
+    <visual name="ditto19__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

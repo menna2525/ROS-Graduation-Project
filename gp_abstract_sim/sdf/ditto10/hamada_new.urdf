@@ -1,0 +1,265 @@
+<?xml version="1.0" ?>
+<robot name="ditto10"
+         xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <joint name="ditto10__body_JOINT_0" type="fixed">
+    <parent link="ditto10__body"/>
+    <child link="ditto10__body_magnet_south"/>
+    <origin rpy="1.63618000e+00  -4.00000000e-05   2.10000000e-04" xyz="0      -0.07149  0.03"/>
+    <axis xyz="1.00000000e+00  -2.00000000e-05   2.20000000e-04"/>
+    <limit effort="-1.0" lower="0.0" upper="0.0" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto10__body_JOINT_1" type="fixed">
+    <parent link="ditto10__body"/>
+    <child link="ditto10__body_magnet_north"/>
+    <origin rpy="1.62063000e+00  -3.00000000e-05   1.60000000e-04" xyz="0.03    -0.07149  0.015"/>
+    <axis xyz="1.00000000e+00  -2.00000000e-05   1.60000000e-04"/>
+    <limit effort="-1.0" lower="0.0" upper="0.0" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto10__face_mover_joint" type="revolute">
+    <parent link="ditto10__body"/>
+    <child link="ditto10__mover_link"/>
+    <origin rpy="-3.14159  1.56989 -3.14159" xyz="0    0    0.02"/>
+    <axis xyz="-1.00000000e+00   0.00000000e+00  -9.00000000e-04"/>
+    <limit effort="-1.0" lower="0.0" upper="1.5717" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto10__fixed_joint" type="fixed">
+    <parent link="ditto10__mover_link"/>
+    <child link="ditto10__front_face"/>
+    <origin rpy="3.11515 -1.56988 -3.11517" xyz="0    0.07  0"/>
+    <axis xyz="0  0  0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+  <joint name="ditto10__front_face_JOINT_0" type="fixed">
+    <parent link="ditto10__front_face"/>
+    <child link="ditto10__front_face_magnet_north"/>
+    <origin rpy="1.57071000e+00  -1.00000000e-05   1.00000000e-04" xyz="0.03   0.008 -0.005"/>
+    <axis xyz="1.00000000e+00  -1.00000000e-05   8.00000000e-05"/>
+    <limit effort="-1.0" lower="0.0" upper="0.0" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto10__front_face_JOINT_1" type="fixed">
+    <parent link="ditto10__front_face"/>
+    <child link="ditto10__front_face_magnet_south"/>
+    <origin rpy="1.58626000e+00  -2.00000000e-05   1.60000000e-04" xyz="0     0.008  0.01"/>
+    <axis xyz="1.00000000e+00  -2.00000000e-05   1.30000000e-04"/>
+    <limit effort="-1.0" lower="0.0" upper="0.0" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto10__left_wheel_joint" type="revolute">
+    <parent link="ditto10__body"/>
+    <child link="ditto10__left_wheel"/>
+    <origin rpy="1.5707  0      1.5707" xyz="0.07     0       0.01833"/>
+    <axis xyz="0.00000000e+00   1.00000000e+00   9.00000000e-05"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto10__mover_link_JOINT_0_0" type="revolute">
+    <parent link="ditto10__mover_link"/>
+    <child link="ditto10__face_mover_link"/>
+    <origin rpy="1.54872000e+00  -2.00000000e-05   4.30500000e-02" xyz="0    0.06  0"/>
+    <axis xyz="-8.80000000e-04   9.99750000e-01   2.20300000e-02"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto10__face_rotary_joint" type="revolute">
+    <parent link="ditto10__face_mover_link"/>
+    <child link="ditto10__front_face"/>
+    <origin rpy="-1.61389 -0.02206  1.57168" xyz="0.00043  0.00022 -0.00998"/>
+    <axis xyz="1.00000000e+00   2.00000000e-05   0.00000000e+00"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <joint name="ditto10__right_wheel_joint" type="revolute">
+    <parent link="ditto10__body"/>
+    <child link="ditto10__right_wheel"/>
+    <origin rpy="1.5707  0      1.5707" xyz="-0.07     0       0.01833"/>
+    <axis xyz="0.00000000e+00   1.00000000e+00   9.00000000e-05"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <link name="ditto10__body">
+    <inertial>
+      <mass value="5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="ditto10__collision">
+      <origin rpy="0  0  0" xyz="0       0      -0.03666"/>
+      <geometry>
+        <mesh filename="package://gp_abstract_sim/meshes/bodyCorrected.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="ditto10__visual">
+      <origin rpy="0  0  0" xyz="0       0      -0.03666"/>
+      <geometry>
+        <mesh filename="package://gp_abstract_sim/meshes/bodyCorrected.stl" scale="0.01 0.01 0.01"/>
+<material name= "Black"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto10__body_magnet_north">
+    <inertial>
+      <mass value="1e-07"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="ditto10__box_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.0025" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="ditto10__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.0025" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto10__body_magnet_south">
+    <inertial>
+      <mass value="1e-07"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="ditto10__box_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.003" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="ditto10__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.003" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto10__front_face">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="ditto10__box_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.1 0.01 0.1"/>
+      </geometry>
+    </collision>
+    <visual name="ditto10__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.1 0.01 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto10__front_face_magnet_north">
+    <inertial>
+      <mass value="1e-07"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="ditto10__box_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.0025" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="ditto10__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.0025" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto10__front_face_magnet_south">
+    <inertial>
+      <mass value="1e-07"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="ditto10__box_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.003" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="ditto10__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.003" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto10__left_wheel">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="ditto10__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </collision>
+    <visual name="ditto10__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto10__mover_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="ditto10__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.045"/>
+      </geometry>
+    </collision>
+    <visual name="ditto10__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.045"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto10__face_mover_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="ditto10__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="ditto10__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.04"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ditto10__right_wheel">
+    <inertial>
+      <mass value="0.5"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="ditto10__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </collision>
+    <visual name="ditto10__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

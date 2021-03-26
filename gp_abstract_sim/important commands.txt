@@ -1,0 +1,20 @@
+rostopic pub /ditto4/right_wheel_speed std_msgs/Float32 "data: 0.5"
+roslaunch gp_abstract_sim spawn_sdf.launch robot_name:="ditto3" sdf_robot_file:="/home/micha/catkin_ws/src/gp_abstract_sim/models/GPabstractV2/model.sdf"
+rosservice call /gazebo/get_joint_properties "joint_name: 'right_wheel_joint'"
+roslaunch gp_abstract_sim start_testworld.launch
+source CAT_WS_TWO
+roslaunch gp_abstract_sim spawn_urdf.launch robot_name:="dittaya" x:=1
+roslaunch gp_abstract_sim rviz.launch
+rosservice call /gazebo/set_joint_properties "joint_name: ''              
+ode_joint_config:
+  damping: [0]
+  hiStop: [0]
+  loStop: [0]
+  erp: [0]
+  cfm: [0]
+  stop_erp: [0]
+  stop_cfm: [0]
+  fudge_factor: [0]
+  fmax: [0]
+  vel: [0]" 
+  /home/micha/catkin_ws/src/gp_abstract_sim/models/Final_Assembly2/urdf/FinalAssembly2.urdf

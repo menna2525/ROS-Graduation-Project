@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="FinalAssembly2">
+  <link
+    name="Outer_Case">
+    <inertial>
+      <origin
+        xyz="0.0211964224301851 -0.0952019746954916 0.059735847156317"
+        rpy="0 0 0" />
+      <mass
+        value="0.104508264002408" />
+      <inertia
+        ixx="0.000120821067610106"
+        ixy="-4.56271273363852E-16"
+        ixz="-4.69289573746155E-10"
+        iyy="0.000115884971342972"
+        iyz="1.13338369093235E-07"
+        izz="7.40633496559783E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp_abstract_sim/models/Final_Assembly2/meshes/Outer Case.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.3" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp_abstract_sim/models/Final_Assembly2/meshes/Outer Case.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Right_Wheel">
+    <inertial>
+      <origin
+        xyz="-2.08166817117217E-16 -2.4980018054066E-16 0.00371328002115152"
+        rpy="0 0 0" />
+      <mass
+        value="0.0363036221414246" />
+      <inertia
+        ixx="2.03748403765877E-05"
+        ixy="1.05879118406788E-21"
+        ixz="-1.11537415958963E-21"
+        iyy="2.03748403765877E-05"
+        iyz="1.41124772685827E-21"
+        izz="4.06952253199633E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp_abstract_sim/models/Final_Assembly2/meshes/Right Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.3" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp_abstract_sim/models/Final_Assembly2/meshes/Right Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0238034034066179 -0.124756457031082 0.0601611747722259"
+      rpy="1.5707963267949 1.42813262544932 -1.5707963267949" />
+    <parent
+      link="Outer_Case" />
+    <child
+      link="Right_Wheel" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <link
+    name="Left_Wheel">
+    <inertial>
+      <origin
+        xyz="0.00149999999999982 -2.63677968348475E-16 -4.92661467177413E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.0267833605270158" />
+      <inertia
+        ixx="3.47522154379326E-05"
+        ixy="-3.75937281929115E-23"
+        ixz="1.19533931376837E-21"
+        iyy="1.73961952393616E-05"
+        iyz="1.22487104186169E-23"
+        izz="1.73961952393616E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp_abstract_sim/models/Final_Assembly2/meshes/Left Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.3" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp_abstract_sim/models/Final_Assembly2/meshes/Left Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="revolute">
+    <origin
+      xyz="0.0691965965933822 -0.124756457031083 0.0601611747722257"
+      rpy="3.14159265358979 0 0" />
+    <parent
+      link="Outer_Case" />
+    <child
+      link="Left_Wheel" />
+    <axis
+      xyz="-1 0 0" />
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  <link
+    name="Inner_Gears">
+    <inertial>
+      <origin
+        xyz="-8.53483950180589E-16 6.10622663543836E-16 0.021196596593382"
+        rpy="0 0 0" />
+      <mass
+        value="0.0234483182004593" />
+      <inertia
+        ixx="1.1387450025414E-05"
+        ixy="-1.16467030247466E-21"
+        ixz="-2.19677351004307E-21"
+        iyy="1.1387450025414E-05"
+        iyz="1.37546304476603E-21"
+        izz="2.27397275735273E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp_abstract_sim/models/Final_Assembly2/meshes/Inner Gears.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.3" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp_abstract_sim/models/Final_Assembly2/meshes/Inner Gears.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="face_mover_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.124756457031082 0.060161174772226"
+      rpy="1.5707963267949 -1.43922604589227 1.5707963267949" />
+    <parent
+      link="Outer_Case" />
+    <child
+      link="Inner_Gears" />
+    <axis
+      xyz="0 0 -1" />
+    <limit effort="-1.0" lower="-0e+308" upper="0e+308" velocity="-1.0"/>
+  </joint>
+  <link
+    name="Inner_Case">
+    <inertial>
+      <origin
+        xyz="0.0162884249022683 0.034590690767926 0.0384371285183222"
+        rpy="0 0 0" />
+      <mass
+        value="0.166645334643581" />
+      <inertia
+        ixx="0.000112680015125093"
+        ixy="-4.32609439901599E-08"
+        ixz="-1.97390819243312E-07"
+        iyy="8.64224818532499E-05"
+        iyz="3.90158468022678E-10"
+        izz="7.93874942396971E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp_abstract_sim/models/Final_Assembly2/meshes/Inner Case.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.3" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp_abstract_sim/models/Final_Assembly2/meshes/Inner Case.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Inner_Case_joint"
+    type="fixed">
+    <origin
+      xyz="-0.030972105261133 0.0450525104260948 -0.0168034034066179"
+      rpy="0 0 -1.66326980019875" />
+    <parent
+      link="Inner_Gears" />
+    <child
+      link="Inner_Case" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <gazebo>
+    <plugin name="my_speed_controller_plugin" filename="libmy_speed_controller_plugin.so">
+      <namespace_model>GPabstractV2</namespace_model>
+      <activate_pid_control>no</activate_pid_control>                
+      <wheel_kp>0.1</wheel_kp>
+      <wheel_ki>0.0</wheel_ki>
+      <wheel_kd>0.0</wheel_kd>
+	  </plugin>
+  </gazebo>
+</robot>

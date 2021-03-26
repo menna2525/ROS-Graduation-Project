@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "/home/micha/catkin_ws/src/simple_keys"
+		}
+	],
+	"settings": {
+		"python.autoComplete.extraPaths": [
+			"/home/micha/catkin_ws/devel/lib/python2.7/dist-packages",
+			"/opt/ros/melodic/lib/python2.7/dist-packages"
+		],
+		"files.associations": {
+			"cmath": "cpp"
+		}
+	}
+}
